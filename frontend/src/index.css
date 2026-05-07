@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-950 text-gray-100 antialiased;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-gray-900; }
+  ::-webkit-scrollbar-thumb { @apply bg-red-700 rounded-full; }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl;
+  }
+  .neon-border {
+    @apply border border-red-500/40 shadow-[0_0_15px_rgba(255,0,0,0.25)];
+  }
+  .tab-inactive {
+    @apply text-gray-400 hover:text-gray-100 hover:bg-white/5;
+  }
+  .framework-card {
+    @apply glass p-4 mb-3 animate-fade-in;
+  }
+  .intensity-high { @apply text-red-400 font-semibold; }
+  .intensity-medium { @apply text-amber-400 font-semibold; }
+  .intensity-low { @apply text-green-400 font-semibold; }
+
+  .futuristic-text {
+    @apply uppercase tracking-[0.2em] font-black italic;
+    background: linear-gradient(to bottom right, #ffffff 30%, #ff0000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+  }
+
+  .neon-glow-red {
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.6), inset 0 0 12px rgba(255, 0, 0, 0.4);
+  }
+
+  .cyber-grid {
+    background-image: linear-gradient(rgba(255, 0, 0, 0.08) 1px, transparent 1px), 
+                      linear-gradient(90deg, rgba(255, 0, 0, 0.08) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .tab-active {
+    @apply text-white relative;
+    background: linear-gradient(135deg, rgba(255, 0, 0, 0.5) 0%, rgba(59, 130, 246, 0.4) 100%);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.4), inset 0 0 12px rgba(255, 0, 0, 0.3);
+    border: 1px solid rgba(255, 0, 0, 0.6);
+  }
+
+  .tab-active::after {
+    content: '';
+    @apply absolute -bottom-[1px] left-0 w-full h-[2px] bg-red-500 shadow-[0_0_20px_#ff0000];
+  }
+
+  .tab-inactive {
+    @apply text-gray-500 border border-transparent hover:text-gray-300 hover:bg-white/5 transition-all duration-300;
+  }
+
+  .cyber-tab-container {
+    @apply bg-black/40 backdrop-blur-xl border border-white/5 p-1 rounded-xl relative overflow-hidden;
+  }
+
+  .cyber-tab-container::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 0, 0, 0.15) 3px, transparent 4px);
+  }
+
+  .neon-border-subtle {
+    @apply border border-white/10 shadow-[0_0_10px_rgba(0,0,0,0.5)];
+  }
+}
